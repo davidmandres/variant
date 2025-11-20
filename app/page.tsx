@@ -5,7 +5,7 @@ import ScrollToHashElement from "../lib/ScrollToHashElement";
 import Services from "./services/page";
 import NotFound from "./not-found/page";
 
-import "./css/style.css";
+import "./css/style.comp.css"; //change whne not in dev
 
 export default function App() {
   return (
