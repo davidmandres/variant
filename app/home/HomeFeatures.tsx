@@ -1,5 +1,3 @@
-"use client";
-
 export default function HomeFeatures() {
   return (
     <section className="section-features" id="section-features">
