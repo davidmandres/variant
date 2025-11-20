@@ -1,0 +1,94 @@
+@use "../utils/variables" as *;
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
+
+@use "./animations" as *;
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $gray-7;
+}
+
+.heading-primary {
+  color: $white;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+  backface-visibility: hidden;
+
+  .main {
+    display: block;
+    font-weight: 400;
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+
+    @include respond(phone) {
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
+  }
+
+  .sub {
+    display: block;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1.74rem;
+    animation: moveInRight 1s ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+
+.heading-secondary {
+  //making the text gradient
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    rgba($light-green, 0.8),
+    rgba($dark-green, 0.8)
+  );
+  background-clip: text;
+  color: transparent;
+
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 3rem;
+
+  @include transition-ns(0.2s);
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.5rem) scale(1.05);
+    cursor: default;
+    text-shadow: box-shadow-with-opacity(0.5rem, 1rem, 0.1);
+  }
+}
+
+.heading-tertiary {
+  font-weight: 700;
+  font-size: $default-font-size;
+  letter-spacing: 0.2rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

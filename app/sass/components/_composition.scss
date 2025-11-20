@@ -1,0 +1,87 @@
+@use "../utils/functions" as *;
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.composition {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+
+  @include respond(tab-port) {
+    margin-top: 8rem;
+  }
+
+  .photo {
+    width: 55%;
+    position: absolute;
+    z-index: 0;
+    outline-offset: 2rem;
+
+    @include box-shadow--black-0(1.5rem, 4rem);
+    @include transition-ns;
+
+    @include respond(tab-land) {
+      float: left;
+      position: relative;
+      width: calc((1 / 3) * 100%);
+
+      @include box-shadow--black-0(1.5rem, 3rem, 0.2);
+    }
+
+    &--1 {
+      left: 0;
+      top: -2rem;
+
+      @include respond(tab-land) {
+        top: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    &--2 {
+      right: 0;
+      top: 2rem;
+
+      @include respond(tab-land) {
+        top: -1rem;
+        transform: scale(1.3);
+        z-index: 1;
+      }
+    }
+
+    &--3 {
+      left: 20%;
+      top: 10rem;
+
+      @include respond(tab-land) {
+        left: 0;
+        top: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+      z-index: 1;
+      outline: 1.5rem solid $light-green;
+
+      @include box-shadow--black-0(2rem, 6rem);
+
+      @include respond(tab-land) {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &:hover .photo:not(:hover) {
+    transform: scale(0.95);
+
+    @include box-shadow--black-0(1rem, 2rem);
+
+    @include respond(tab-land) {
+      transform: scale(1);
+    }
+  }
+}

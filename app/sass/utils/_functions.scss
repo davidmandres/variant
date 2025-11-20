@@ -1,0 +1,26 @@
+@use "./variables" as *;
+
+@function black-with-opacity($opacity: $default-opacity) {
+  @return rgba($black, $opacity);
+}
+
+@function box-shadow-with-opacity(
+  $offset-y: $default-box-shadow-offset-y,
+  $blur-radius: $default-box-shadow-blur-radius,
+  $opacity: $default-opacity
+) {
+  @return 0 $offset-y $blur-radius black-with-opacity($opacity);
+}
+
+@function rb-linear-gradient(
+  $color-1,
+  $color-2,
+  $color-1-opacity: 1,
+  $color-2-opacity: 1
+) {
+  @return linear-gradient(
+    to right bottom,
+    rgba($color-1, $color-1-opacity),
+    rgba($color-2, $color-2-opacity)
+  );
+}

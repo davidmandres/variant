@@ -1,0 +1,51 @@
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
+
+.u-center-text {
+  text-align: center !important;
+}
+
+//margin utilities
+.u-margin-bottom-l {
+  margin-bottom: 8rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 5rem !important;
+  }
+}
+
+.u-margin-bottom-sm {
+  margin-bottom: 1.5rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 1rem !important;
+  }
+}
+
+.u-margin-top-xl {
+  margin-top: 10rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 8rem !important;
+  }
+}
+
+.u-margin-top-l {
+  margin-top: 8rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 5rem !important;
+  }
+}
+
+.u-margin-top-m {
+  margin-top: 4rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 3rem !important;
+  }
+}
+
+.u-box-shadow-2-4-black {
+  box-shadow: 0, 0.2rem, 0.4rem, black-with-opacity() !important;
+}

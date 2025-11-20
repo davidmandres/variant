@@ -1,0 +1,125 @@
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
+@use "../utils/variables" as *;
+
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($black, 0.8);
+  z-index: 30;
+  opacity: 0;
+  visibility: hidden;
+
+  @include transition-ns;
+
+  .content {
+    width: 80%;
+    background-color: $gray-1;
+    box-shadow: box-shadow-with-opacity(2rem, 4rem, 0.2);
+    border-radius: 0.3rem;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+
+    @include abs-center;
+    transform: translate(-50%, -50%) scale(0); //to account for transform from mixin
+    @include transition-ns(0.5s);
+
+    @include respond(tab-port) {
+      width: 90%;
+    }
+
+    @include respond(phone) {
+      width: 95%;
+      height: 80%;
+    }
+
+    .left {
+      width: calc((1 / 3) * 100%);
+      display: flex;
+      flex-direction: column;
+
+      @include respond(phone) {
+        width: 0;
+      }
+
+      .img {
+        display: block;
+        width: 100%;
+        height: 50%;
+        justify-self: stretch;
+      }
+    }
+
+    .right {
+      width: calc((2 / 3) * 100%);
+      padding: 3rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @include respond(tab-port) {
+        padding: 3rem 2rem;
+      }
+
+      @include respond(phone) {
+        width: 100%;
+        gap: 3.5rem;
+        align-items: center;
+      }
+
+      a {
+        align-self: self-start;
+
+        @include respond(phone) {
+          align-self: center;
+        }
+      }
+
+      .text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+        column-count: 2;
+        column-gap: 4rem; //1rem = 14px = font-size
+        column-rule: 0.1rem solid $gray-4;
+
+        hyphens: auto;
+      }
+    }
+
+    .close {
+      &:link,
+      &:visited {
+        position: absolute;
+        top: 2.5rem;
+        right: 2.5rem;
+        color: $gray-9;
+        font-size: 3rem;
+        text-decoration: none;
+        display: inline-block;
+        line-height: 1;
+
+        @include transition-ns(0.2s);
+      }
+
+      &:hover {
+        color: $dark-green;
+      }
+    }
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+
+    & .content {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}

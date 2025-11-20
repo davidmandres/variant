@@ -1,0 +1,21 @@
+@use "../utils/variables" as *;
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
+
+main#not-found {
+  @include abs-center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+  p {
+    color: $light-green;
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  .btn-text {
+    align-self: center;
+  }
+}

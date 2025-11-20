@@ -1,0 +1,143 @@
+@use "../utils/variables" as *;
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  padding: 6rem 4rem;
+  gap: 3rem;
+
+  @include respond(tab-land) {
+    width: 100%;
+
+    & .heading-secondary {
+      color: $dark-green;
+    }
+  }
+
+  @include respond(tab-port) {
+    & .heading-secondary {
+      text-align: center;
+    }
+  }
+
+  .name-group {
+    display: flex;
+    align-self: stretch;
+    width: 95%;
+
+    @include respond(phone) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+
+    @include respond(tab-land) {
+      width: 50%;
+      align-self: center;
+      flex-wrap: wrap;
+      align-content: space-around;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    label {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-left: 2rem;
+      margin-top: 0.7rem;
+      display: block;
+      color: $gray-7;
+
+      @include transition-ns;
+    }
+
+    input,
+    textarea {
+      padding: 1.5rem 2rem;
+      font-size: 1.5rem;
+      font-family: inherit;
+      color: inherit;
+      border-radius: 0.2rem;
+      border: none;
+      border-bottom: 0.3rem solid transparent;
+      background-color: rgba($white, 0.5);
+      width: 90%;
+      display: block;
+      resize: none;
+
+      @include transition-ns;
+
+      &:focus {
+        border-bottom: 0.3rem solid $light-green;
+        outline: none;
+        box-shadow: box-shadow-with-opacity(1rem, 2rem, 0.1);
+
+        &:invalid {
+          border-bottom: 0.3rem solid $orange-5;
+        }
+      }
+
+      &:placeholder-shown + label,
+      &:placeholder-shown + textarea {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+      }
+
+      &::-webkit-input-placeholder {
+        color: $gray-6;
+      }
+    }
+  }
+
+  &--submission {
+    align-self: flex-start;
+
+    @include respond(tab-land) {
+      align-self: center;
+    }
+
+    .submit-message {
+      padding: 1rem;
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      font-size: 1.4rem;
+      transform: translateY(-4rem);
+
+      @include transition-ns(0.5s);
+
+      @include respond(tab-land) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &.success,
+      &.error {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      &.success {
+        color: $gray-7;
+      }
+
+      &.error {
+        color: $orange-5;
+      }
+    }
+  }
+}

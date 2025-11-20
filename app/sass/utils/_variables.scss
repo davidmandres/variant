@@ -1,0 +1,41 @@
+// variables for colors used in the project, from https://yeun.github.io/open-color/ with the exception of the green's coming from the logo colors
+$light-green: #7ed56f;
+$medium-green: #55c57a;
+$dark-green: #28b485;
+
+$orange-3: #ffc078;
+$orange-5: #ff922b;
+
+$violet-3: #b197fc;
+$violet-5: #845ef7;
+
+$yellow-3: #ffe066;
+$yellow-5: #fcc419;
+
+$gray-9: #212529;
+$gray-8: #343a40;
+$gray-7: #495057;
+$gray-6: #868e96;
+$gray-5: #adb5bd;
+$gray-0: #f8f9fa;
+$gray-1: #f1f3f5;
+$gray-2: #e9ecef;
+$gray-3: #dee2e6;
+$gray-4: #ced4da;
+
+$white: #fff;
+$black: #000;
+
+// variables for grid
+$grid-gutter: 6rem;
+$grid-column-width: 8rem; // width of each column in the grid
+$grid-max-width: 114rem; // max width of the grid container
+
+// variables for fonts
+$default-font-size: 1.6rem;
+
+// misc
+$default-opacity: 0.2;
+$default-box-shadow-offset-y: 0.2rem;
+$default-box-shadow-blur-radius: 0.4rem;
+$default-transition-secs: 0.3s;

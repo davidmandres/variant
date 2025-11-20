@@ -1,0 +1,62 @@
+@use "../utils/variables" as *;
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
+
+.footer {
+  background-color: $gray-8;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+  color: $gray-1;
+
+  .logo-box {
+    text-align: center;
+
+    .logo {
+      width: 15rem;
+      height: auto;
+    }
+  }
+
+  .nav {
+    border-top: 1px solid $gray-5;
+    padding-top: 2rem;
+    display: inline-block; //so it doesnt take 100% of width
+  }
+
+  .list {
+    list-style: none;
+
+    .item {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+  .link {
+    &:link,
+    &:visited {
+      background-color: transparent;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      color: inherit;
+
+      @include transition-ns(0.2s);
+    }
+
+    &:hover,
+    &:active {
+      color: $light-green;
+      transform: rotate(5deg) scale(1.05);
+    }
+  }
+
+  .copyright {
+    border-top: 0.1rem solid $gray-5;
+    padding-top: 2rem;
+    width: 80%;
+    float: right;
+  }
+}
