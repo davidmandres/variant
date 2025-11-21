@@ -1,22 +1,31 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./home/page";
-import About from "./about/page";
-import ScrollToHashElement from "../lib/ScrollToHashElement";
-import Services from "./services/page";
-import NotFound from "./not-found/page";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Navigation from "./components/Navigation";
+import Popup from "./components/Popup";
+import HomeAbout from "./home/HomeAbout";
+import HomeBook from "./home/HomeBook";
+import HomeFeatures from "./home/HomeFeatures";
+import HomeServices from "./home/HomeServices";
+import HomeStories from "./home/HomeStories";
 
-import "./css/style.comp.css"; //change whne not in dev
-
-export default function App() {
+export default function Home() {
   return (
-    <BrowserRouter>
-      <ScrollToHashElement />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Navigation />
+
+      <Header />
+
+      <main>
+        <HomeAbout />
+        <HomeFeatures />
+        <HomeServices />
+        <HomeStories />
+        <HomeBook />
+      </main>
+
+      <Footer />
+
+      <Popup />
+    </>
   );
 }

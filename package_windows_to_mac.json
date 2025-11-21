@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "dev-windows": "concurrently next dev --turbopack npm run watch:sass",
+    "dev-mac": "concurrently 'next dev --turbopack' 'npm run watch:sass'"
+  }
+}

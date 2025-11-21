@@ -1,3 +1,7 @@
+"use client";
+
+import Image from "next/image";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
@@ -6,8 +10,8 @@ export default function Stories() {
     <>
       <div className="bg-video">
         <video className="content" autoPlay muted loop>
-          <source src="./src/assets/img/video.mp4" type="video/mp4" />
-          <source src="./src/assets/img/video.webm" type="video/webm" />
+          <source src="/img/video.mp4" type="video/mp4" />
+          <source src="/img/video.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -29,10 +33,12 @@ export default function Stories() {
         <SwiperSlide>
           <div className="story">
             <figure className="shape">
-              <img
-                src="./src/assets/img/nat-8.jpg"
+              <Image
+                src="/img/nat-8.jpg"
                 alt="PFP for first story"
                 className="img img--1"
+                width={100}
+                height={100}
               />
               <figcaption className="caption">Jane Doe</figcaption>
             </figure>
@@ -61,10 +67,12 @@ export default function Stories() {
         <SwiperSlide>
           <div className="story">
             <figure className="shape">
-              <img
-                src="./src/assets/img/nat-9.jpg"
+              <Image
+                src="/img/nat-9.jpg"
                 alt="PFP for first story"
                 className="img img--2"
+                width={100}
+                height={100}
               />
               <figcaption className="caption">John Doe</figcaption>
             </figure>

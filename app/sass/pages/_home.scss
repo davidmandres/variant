@@ -15,7 +15,7 @@
 .section-features {
   padding: 20rem 0;
   background-image: rb-linear-gradient($light-green, $dark-green, 0.8, 0.8),
-    url("../../assets/img/nat-4.jpg");
+    url("/img/nat-4.jpg");
   background-size: cover;
   transform: skewY(-7deg);
   margin-top: -12rem;
@@ -71,7 +71,7 @@
       rgba($white, 0.9) 50%,
       transparent 50%
     ),
-    url("../../assets/img/nat-10.jpg");
+    url("/img/nat-10.jpg");
   background-size: cover;
   border-radius: 0.3rem;
   box-shadow: box-shadow-with-opacity(1.5rem, 4rem, 0.15);
@@ -79,6 +79,6 @@
   @include respond(tab-land) {
     padding: 5rem;
     background-image: rb-linear-gradient($white, $white, 0.5, 1),
-      url("../../assets/img/nat-10.jpg");
+      url("/img/nat-10.jpg");
   }
 }

@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutAbout() {
   return (
@@ -36,39 +37,27 @@ export default function AboutAbout() {
             facere quos veritatis!
           </p>
 
-          <Link to="/#section-about" className="btn-text">
+          <Link href="/#section-about" className="btn-text">
             &larr; Go back
           </Link>
         </div>
 
         <div className="col--c col--padded">
           <div className="composition">
-            <img
-              src="./src/assets/img/nat-1-large.jpg"
-              srcSet="
-                  ./src/assets/img/nat-1.jpg        300w,
-                  ./src/assets/img/nat-1-large.jpg 1000w
-                "
+            <Image
+              src="/img/nat-1-large.jpg"
               sizes="(max-width: 37.5em) 30vw, (max-width: 56.25em) 20vw, 300px"
               alt="Nature image 1"
               className="photo photo--1"
             />
-            <img
-              src="./src/assets/img/nat-2-large.jpg"
-              srcSet="
-                  ./src/assets/img/nat-2.jpg        300w,
-                  ./src/assets/img/nat-2-large.jpg 1000w
-                "
+            <Image
+              src="/img/nat-2-large.jpg"
               sizes="(max-width: 37.5em) 30vw, (max-width: 56.25em) 20vw, 300px"
               alt="Nature image 2"
               className="photo photo--2"
             />
-            <img
-              src="./src/assets/img/nat-3-large.jpg"
-              srcSet="
-                  ./src/assets/img/nat-3.jpg        300w,
-                  ./src/assets/img/nat-3-large.jpg 1000w
-                "
+            <Image
+              src="/img/nat-3-large.jpg"
               sizes="(max-width: 37.5em) 30vw, (max-width: 56.25em) 20vw, 300px"
               alt="Nature image 3"
               className="photo photo--3"

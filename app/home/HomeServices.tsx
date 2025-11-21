@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function HomeServices() {
   return (
@@ -117,7 +117,7 @@ export default function HomeServices() {
         </div>
       </div>
 
-      <Link to="/services" className="btn--green u-margin-top-l">
+      <Link href="/services" className="btn--green u-margin-top-l">
         See all services
       </Link>
     </section>

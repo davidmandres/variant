@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function ServicesServices() {
   return (
@@ -155,7 +155,7 @@ export default function ServicesServices() {
         </div>
       </div>
 
-      <Link to="/" className="btn--green u-margin-top-l">
+      <Link href="/" className="btn--green u-margin-top-l">
         &larr; Go back
       </Link>
     </section>

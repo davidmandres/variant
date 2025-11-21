@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
+
 import useModalFunc from "../hooks/useModalFunc";
 
 export default function Popup() {
@@ -12,15 +14,19 @@ export default function Popup() {
     <div className="popup" id="popup">
       <div ref={contentRef} className="content">
         <div className="left">
-          <img
-            src="./src/assets/img/nat-8.jpg"
+          <Image
+            src="/img/nat-8.jpg"
             alt="Tour photo 1"
             className="img"
+            fill
+            style={{ objectFit: "contain" }}
           />
-          <img
-            src="./src/assets/img/nat-9.jpg"
+          <Image
+            src="/img/nat-9.jpg"
             alt="Tour photo 2"
             className="img"
+            width={100}
+            height={100}
           />
         </div>
         <div className="right">

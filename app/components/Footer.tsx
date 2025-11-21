@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -5,18 +7,16 @@ export default function Footer() {
         <picture className="logo">
           <source
             srcSet="
-              ./src/assets/img/logo-green-small-1x.png 1x,
-              ./src/assets/img/logo-green-small-2x.png 2x
+              /img/logo-green-small-1x.png 1x,
+              /img/logo-green-small-2x.png 2x
             "
             media="(max-width: 37.5em)"
           />
-          <img
-            src="./src/assets/img/logo-green-1x.png"
-            srcSet="
-              ./src/assets/img/logo-green-1x.png 1x,
-              ./src/assets/img/logo-green-2x.png 2x
-            "
+          <Image
+            src="/img/logo-green-1x.png"
             alt="Full logo"
+            width={150}
+            height={119}
           />
         </picture>
       </div>
