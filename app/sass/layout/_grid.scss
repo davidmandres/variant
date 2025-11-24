@@ -2,16 +2,16 @@
 @use "../utils/functions" as *;
 @use "../utils/mixins" as *;
 
-.grid-2-cols {
-  @include grid-n-cols(2);
-}
+@mixin grid($cols, $gap: $grid-gutter, $max-width: $grid-max-width) {
+  display: grid;
+  gap: $gap;
+  max-width: $max-width;
+  margin: 0 auto;
+  grid-template-columns: repeat($cols, 1fr);
 
-.grid-3-cols {
-  @include grid-n-cols(3);
-}
-
-.grid-4-cols {
-  @include grid-n-cols(4);
+  @include respond(tab-land) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .col {

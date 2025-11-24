@@ -8,13 +8,12 @@
 @use "utils/variables";
 
 @use "pages/home";
-@use "pages/about";
 @use "pages/services";
 @use "pages/not-found";
 
 @use "components/button";
 @use "components/header";
-@use "components/composition";
+@use "components/stats";
 @use "components/feature-box";
 @use "components/card";
 @use "components/story";
@@ -22,7 +21,7 @@
 @use "components/form";
 @use "components/footer";
 @use "components/nav";
-@use "components/popup";
+@use "components/hero";
 
 @use "layout/grid";
 @use "layout/flex";

@@ -53,7 +53,7 @@
       }
 
       &--2 {
-        background-image: rb-linear-gradient($light-green, $medium-green);
+        background-image: rb-linear-gradient($gray-6, $medium-green);
       }
 
       &--3 {
@@ -80,7 +80,7 @@
     }
 
     &--2 {
-      background-image: rb-linear-gradient($light-green, $medium-green),
+      background-image: rb-linear-gradient($gray-1, $medium-green),
         url("/img/nat-6.jpg");
     }
 
@@ -117,12 +117,7 @@
     }
 
     &--2 {
-      background-image: rb-linear-gradient(
-        $light-green,
-        $medium-green,
-        0.85,
-        0.85
-      );
+      background-image: rb-linear-gradient($gray-1, $medium-green, 0.85, 0.85);
     }
 
     &--3 {
@@ -139,7 +134,7 @@
     top: 25rem;
     right: 2rem;
     width: 75%;
-    color: $gray-6;
+    color: $gray-1;
     font-size: 1.6rem;
     line-height: 1.5;
 
@@ -153,7 +148,7 @@
         padding: 1rem;
 
         &:not(:last-child) {
-          border-bottom: 1px solid $gray-3;
+          border-bottom: 1px solid $gray-1;
         }
       }
     }

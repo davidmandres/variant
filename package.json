@@ -1,9 +1,9 @@
 {
-  "name": "template-lp",
+  "name": "variant",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently next dev --turbopack npm run watch:sass",
+    "dev": "concurrently \"next dev --turbopack\" \"npm run watch:sass\"",
     "build": "next build && npm-run-all compile:sass concat:css prefix:css compress:css",
     "start": "next start && npm run watch:sass",
     "lint": "next lint",
@@ -11,7 +11,7 @@
     "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
     "prefix:css": "postcss css/style.concat.css --use autoprefixer -b 'last 5 versions' -o css/style.prefix.css",
     "compress:css": "sass css/style.prefix.css css/style.css --style compressed",
-    "watch:sass": "sass --watch sass/main.scss:css/style.comp.css --style compressed"
+    "watch:sass": "sass --watch app/sass/main.scss:app/css/style.comp.css --style compressed"
   },
   "dependencies": {
     "next": "15.3.4",
@@ -23,22 +23,24 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@eslint/js": "^9.29.0",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.4.22",
     "concat": "^1.0.3",
     "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-tailwindcss": "^3.18.2",
     "globals": "^16.2.0",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "sass": "^1.89.2",
-    "tailwindcss": "^4",
+    "tailwindcss": "^3.4.18",
     "typescript": "^5",
     "typescript-eslint": "^8.34.1"
   }

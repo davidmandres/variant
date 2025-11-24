@@ -1,0 +1,54 @@
+@use "../utils/functions" as *;
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+@use "../layout/flex" as *;
+@use "../layout/grid" as *;
+
+.stats {
+  width: 100%;
+  margin-top: 10rem;
+  padding: 5rem 25rem;
+  background-color: $gray-3;
+
+  @include flex(1rem, row, flex-start, center);
+
+  @include respond(tab-port) {
+    margin-top: 8rem;
+  }
+
+  .stat-container {
+    padding: 1rem;
+
+    @include grid(2, 0rem);
+    @include transition-ns(0.3s);
+
+    &:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+      z-index: 1;
+      outline: 0.1rem solid $gray-9;
+
+      @include box-shadow--black-0(1rem, 3rem);
+
+      @include respond(tab-land) {
+        transform: scale(1.05);
+      }
+    }
+
+    i {
+      grid-row: span 2;
+
+      @include flex-center();
+    }
+
+    .stat {
+      display: inline-block;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .stat-descriptor {
+      color: $gray-6;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Navigation from "./Navigation";
 
 export default function Header() {
   return (
@@ -12,15 +13,7 @@ export default function Header() {
           height={50}
         />
       </div>
-      <div className="text-box">
-        <h1 className="heading-primary">
-          <span className="main">Outdoors</span>
-          <span className="sub">is where life happens</span>
-        </h1>
-        <a href="#section-services" className="btn--white btn--animated">
-          Discover our tours
-        </a>
-      </div>
+      <Navigation />
     </header>
   );
 }

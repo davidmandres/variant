@@ -6,14 +6,20 @@
   &:link,
   &:visited {
     display: inline-block;
-    text-transform: uppercase;
     text-decoration: none;
-    padding: 1.5rem 4rem;
-    border-radius: 5rem;
+    padding: 0.5rem 1rem;
     font-weight: 700;
     letter-spacing: 0.2rem;
-    position: relative;
+    // position: relative;
     font-size: $default-font-size;
+    background-color: $gray-9;
+    color: $gray-1;
+
+    //in case link as child
+    a {
+      color: $gray-1;
+      text-decoration: none;
+    }
 
     //change for button el
     border: none;
@@ -23,14 +29,14 @@
   }
 
   &:hover {
-    transform: translateY(-0.5rem);
+    transform: translateY(-0.2rem);
 
-    @include box-shadow--black-0(1rem, 2rem, 1rem);
+    @include box-shadow--black-0(0.5rem, 1rem);
 
     &::after {
-      transform: scale(1.1);
+      transform: scale(1.05);
 
-      @include box-shadow--black-0(1rem, 2rem, 1rem);
+      @include box-shadow--black-0(0.5rem, 1rem);
     }
   }
 
@@ -49,8 +55,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 5rem;
     z-index: -1;
+    background-color: $gray-9;
 
     @include transition-ns;
   }
@@ -58,7 +64,12 @@
   &--white {
     @extend .btn;
     background-color: $white;
-    color: $gray-7;
+    color: $gray-9;
+    border: 1px solid $gray-4;
+
+    a {
+      color: $gray-9;
+    }
 
     &::after {
       background-color: $white;
@@ -67,11 +78,11 @@
 
   &--green {
     @extend .btn;
-    background-color: $light-green;
+    background-color: red;
     color: $white;
 
     &::after {
-      background-color: $light-green;
+      background-color: $gray-5;
     }
   }
 
@@ -87,23 +98,37 @@
   &:link,
   &:visited {
     display: inline-block;
-    color: $light-green;
     text-decoration: none;
-    border-bottom: 1px solid $light-green;
+
+    //change for button el
+    border: none;
+    cursor: pointer;
+
+    border-bottom: 1px solid $gray-9;
     padding: 0.3rem;
     font-size: $default-font-size;
     letter-spacing: 0.2rem;
     align-self: start;
     background-color: transparent;
+    color: $gray-9;
 
     @include transition-ns;
+
+    a {
+      color: $gray-9;
+      text-decoration: none;
+    }
   }
 
   &:hover {
-    color: $white;
     transform: translateY(-0.2rem);
+    color: $gray-1;
 
-    @include box-shadow--black-0(1rem, 2rem);
+    @include box-shadow--black-0(0.5rem, 1rem);
+
+    a {
+      color: $gray-1;
+    }
 
     &::after {
       content: "";
@@ -113,14 +138,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: $light-green;
+      background-color: $gray-9;
       z-index: -1;
       transform: scale(1.1);
     }
   }
 
   &:active {
-    color: $dark-green;
+    color: $gray-7;
     transform: translateY(0);
 
     @include box-shadow--black-0(0.5rem, 1rem);

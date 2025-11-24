@@ -1,3 +1,30 @@
+@mixin flex($gap: null, $dir: row, $ai: null, $jc: null, $wrap: nowrap) {
+  display: flex;
+
+  @if $gap != null {
+    gap: $gap;
+  }
+
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+
+  @if $ai != null {
+    align-items: $ai;
+  }
+
+  @if $jc != null {
+    justify-content: $jc;
+  }
+}
+
+@mixin flex-center($gap: null) {
+  @include flex($gap, $dir: row, $ai: center, $jc: center);
+}
+
+@mixin flex-col-center($gap: null) {
+  @include flex($gap, $dir: column, $ai: center, $jc: center);
+}
+
 .flex-container--center {
   display: flex;
   align-items: center;

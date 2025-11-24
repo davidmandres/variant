@@ -11,11 +11,14 @@ body {
   color: $gray-7;
 }
 
-.heading-primary {
-  color: $white;
+.heading-1 {
+  color: $gray-9;
   text-transform: uppercase;
-  margin-bottom: 6rem;
   backface-visibility: hidden;
+  padding: 1rem;
+  background-color: $gray-2;
+
+  @include box-shadow--black-0(1rem, 2rem);
 
   .main {
     display: block;
@@ -48,8 +51,8 @@ body {
   display: inline-block;
   background-image: linear-gradient(
     to right,
-    rgba($light-green, 0.8),
-    rgba($dark-green, 0.8)
+    rgba($gray-7, 0.8),
+    rgba($gray-9, 0.8)
   );
   background-clip: text;
   color: transparent;

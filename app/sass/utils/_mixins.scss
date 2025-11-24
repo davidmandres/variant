@@ -7,22 +7,7 @@
   $inset-size: 0
 ) {
   box-shadow: inset 0 0 $inset-size $gray-7,
-    0 $offset-y $blur-radius black-with-opacity();
-}
-
-@mixin grid-n-cols($n) {
-  @if $n > 0 {
-    display: grid;
-    gap: $grid-gutter;
-    max-width: $grid-max-width;
-    margin: 0 auto;
-    grid-template-columns: repeat($n, 1fr);
-  }
-
-  @include respond(tab-land) {
-    grid-template-columns: 1fr;
-    align-items: center;
-  }
+    0 $offset-y calc($offset-y * 3) black-with-opacity();
 }
 
 @mixin transition-ns($secs: $default-transition-secs) {

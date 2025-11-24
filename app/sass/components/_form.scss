@@ -79,7 +79,7 @@
       @include transition-ns;
 
       &:focus {
-        border-bottom: 0.3rem solid $light-green;
+        border-bottom: 0.3rem solid $gray-9;
         outline: none;
         box-shadow: box-shadow-with-opacity(1rem, 2rem, 0.1);
 
@@ -132,7 +132,7 @@
       }
 
       &.success {
-        color: $gray-7;
+        color: $gray-1;
       }
 
       &.error {

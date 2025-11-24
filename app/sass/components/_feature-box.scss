@@ -24,7 +24,7 @@
     font-size: 6rem;
     margin-bottom: 0.5rem;
     display: inline-block;
-    background-image: linear-gradient(to right, $light-green, $dark-green);
+    background-image: linear-gradient(to right, $gray-1, $dark-green);
     background-clip: text;
     color: transparent;
 
@@ -35,7 +35,7 @@
 
   .text {
     font-size: $default-font-size;
-    color: $gray-7;
+    color: $gray-1;
     line-height: 1.5;
     margin-bottom: 1rem;
   }

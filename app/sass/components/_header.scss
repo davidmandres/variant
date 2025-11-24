@@ -2,38 +2,31 @@
 @use "../utils/functions" as *;
 @use "../utils/mixins" as *;
 
-.header {
-  height: 95vh;
-  background-image: rb-linear-gradient($light-green, $dark-green, 0.8, 0.8),
-    url("/img/hero-small.jpg");
-  background-size: cover;
-  background-position: center;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative;
+@use "../layout/flex" as *;
 
-  @include respond(phone) {
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+.header {
+  height: 10vh;
+  padding: 1rem 5rem;
+  // margin-bottom: 10rem;
+  // border-bottom: 1px solid $gray-6;
+
+  @include flex-center(50rem);
+
+  nav.nav {
+    @include flex-center(5rem);
+    align-self: flex-end;
+    width: 75%;
   }
 
-  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
-    only screen and (min-width: 125em) {
-    background-image: rb-linear-gradient($light-green, $dark-green, 0.8, 0.8),
-      url("/img/hero.jpg");
+  .login {
+    @include flex-center(4rem);
   }
 
   .logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
+    background-color: $gray-9;
 
     .logo {
       height: 3.5rem;
     }
-  }
-
-  .text-box {
-    text-align: center;
-
-    @include abs-center($top: 40%);
   }
 }

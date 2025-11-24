@@ -48,13 +48,13 @@
 
     &:hover,
     &:active {
-      color: $light-green;
+      color: $gray-1;
       transform: rotate(5deg) scale(1.05);
     }
   }
 
   .copyright {
-    border-top: 0.1rem solid $gray-5;
+    border-top: 0.1rem solid $gray-1;
     padding-top: 2rem;
     width: 80%;
     float: right;

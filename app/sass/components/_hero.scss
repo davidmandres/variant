@@ -1,0 +1,14 @@
+@use "../utils/variables" as *;
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
+
+@use "../layout/flex" as *;
+
+section.section-hero#section-hero {
+  @include flex-col-center(2rem);
+  height: 100vh;
+
+  .cta {
+    @include flex-center(2rem)
+  }
+}
