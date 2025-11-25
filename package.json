@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev --turbopack\" \"npm run watch:sass\"",
+    "dev-windows": "concurrently \"next dev --turbopack\" \"npm run watch:sass\"",
+    "dev-mac": "concurrently 'next dev --turbopack' 'npm run watch:sass'",
     "build": "next build && npm-run-all compile:sass concat:css prefix:css compress:css",
     "start": "next start && npm run watch:sass",
     "lint": "next lint",
@@ -14,6 +15,7 @@
     "watch:sass": "sass --watch app/sass/main.scss:app/css/style.comp.css --style compressed"
   },
   "dependencies": {
+    "lucide-react": "^0.554.0",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
