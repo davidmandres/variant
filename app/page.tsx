@@ -1,25 +1,17 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import HomeHero from "./home/HomeHero";
-import HomeBook from "./home/HomeBook";
-import HomeFeatures from "./home/HomeFeatures";
-import HomeServices from "./home/HomeServices";
-import HomeStories from "./home/HomeStories";
+import {
+  LandingHero,
+  ValueProps,
+  ProPlan,
+  Guarantee,
+} from '@/components/landing-page-sections';
 
-export default function Home() {
+export default function LandingPage() {
   return (
     <>
-      <Header />
-
-      <main>
-        <HomeHero />
-        <HomeFeatures />
-        <HomeServices />
-        <HomeStories />
-        <HomeBook />
-      </main>
-
-      <Footer />
+      <LandingHero />
+      <ValueProps />
+      <ProPlan />
+      <Guarantee />
     </>
   );
 }
