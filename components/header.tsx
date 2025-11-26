@@ -34,14 +34,14 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed w-full z-50 transition-all duration-300 border-b",
+        "header",
         isScrolled
           ? "bg-background/90 backdrop-blur-md border-border py-4"
           : "bg-background border-transparent py-6"
       )}
     >
-      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 cursor-pointer group">
+      <div className="computer-menu">
+        <Link href="/" className="logo-box group">
           <div className="w-10 h-10 bg-primary text-primary-foreground flex items-center justify-center text-xl font-medium group-hover:scale-105 transition-transform">
             V
           </div>

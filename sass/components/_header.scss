@@ -4,13 +4,28 @@
 
 @use "../layout/flex" as *;
 
-.header {
-  height: 10vh;
-  padding: 1rem 5rem;
-  // margin-bottom: 10rem;
-  // border-bottom: 1px solid $gray-6;
+header.header {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  border-bottom: 1px solid $gray-9;
 
-  @include flex-center(50rem);
+  @include transition-ns(0.3s);
+
+  .computer-menu {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2.4rem;
+
+    @include flex($jc: "space-between", $ai: "center");
+  }
+
+  .logo-box {
+    cursor: pointer;
+
+    @include flex-center(1.2rem);
+  }
 
   nav.nav {
     @include flex-center(5rem);
