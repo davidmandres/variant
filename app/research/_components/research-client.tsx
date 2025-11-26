@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from "react";
 import {
   Search,
   Lock,
@@ -8,19 +8,22 @@ import {
   FileText,
   ChevronLeft,
   ChevronRight,
-} from 'lucide-react';
-import type { ResearchReport } from '@/lib/data';
-import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { cn } from '@/lib/utils';
+} from "lucide-react";
+import type { ResearchReport } from "../../../lib/data";
+import Link from "next/link";
+import { Badge } from "../../../components/ui/badge";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
 
-type FilterType = 'All' | 'Deep Dive' | 'Update' | 'Model Update' | 'Note';
+type FilterType = "All" | "Deep Dive" | "Update" | "Model Update" | "Note";
 
-export default function ResearchClient({ reports }: { reports: ResearchReport[] }) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [typeFilter, setTypeFilter] = useState<FilterType>('All');
+export default function ResearchClient({
+  reports,
+}: {
+  reports: ResearchReport[];
+}) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [typeFilter, setTypeFilter] = useState<FilterType>("All");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -32,7 +35,7 @@ export default function ResearchClient({ reports }: { reports: ResearchReport[] 
           item.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
           item.title.toLowerCase().includes(searchTerm.toLowerCase())
       )
-      .filter((item) => typeFilter === 'All' || item.type === typeFilter);
+      .filter((item) => typeFilter === "All" || item.type === typeFilter);
   }, [reports, searchTerm, typeFilter]);
 
   useEffect(() => {
@@ -46,19 +49,22 @@ export default function ResearchClient({ reports }: { reports: ResearchReport[] 
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    const listTop = document.getElementById('research-list');
+    const listTop = document.getElementById("research-list");
     if (listTop) {
-      listTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      listTop.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  const getBadgeVariant = (type: ResearchReport['type']) => {
+  const getBadgeVariant = (type: ResearchReport["type"]) => {
     switch (type) {
-        case 'Deep Dive': return 'default';
-        case 'Update': return 'secondary';
-        default: return 'outline';
+      case "Deep Dive":
+        return "default";
+      case "Update":
+        return "secondary";
+      default:
+        return "outline";
     }
-  }
+  };
 
   return (
     <div className="pt-32 min-h-screen bg-secondary">
@@ -89,10 +95,23 @@ export default function ResearchClient({ reports }: { reports: ResearchReport[] 
           </div>
 
           <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
-            {(['All', 'Deep Dive', 'Update', 'Model Update', 'Note'] as FilterType[]).map(filter => (
-                <Button key={filter} variant={typeFilter === filter ? 'default' : 'outline'} size="sm" onClick={() => setTypeFilter(filter)}>
-                    {filter}
-                </Button>
+            {(
+              [
+                "All",
+                "Deep Dive",
+                "Update",
+                "Model Update",
+                "Note",
+              ] as FilterType[]
+            ).map((filter) => (
+              <Button
+                key={filter}
+                variant={typeFilter === filter ? "default" : "outline"}
+                size="sm"
+                onClick={() => setTypeFilter(filter)}
+              >
+                {filter}
+              </Button>
             ))}
           </div>
         </div>
@@ -109,16 +128,24 @@ export default function ResearchClient({ reports }: { reports: ResearchReport[] 
 
           <div className="divide-y">
             {currentItems.map((item) => (
-              <Link href={`/report/${item.id}`} key={item.id} className="group md:grid md:grid-cols-12 gap-4 p-5 items-center hover:bg-secondary/50 transition-colors cursor-pointer block">
+              <Link
+                href={`/report/${item.id}`}
+                key={item.id}
+                className="group md:grid md:grid-cols-12 gap-4 p-5 items-center hover:bg-secondary/50 transition-colors cursor-pointer block"
+              >
                 <div className="flex justify-between items-center md:hidden mb-2">
                   <div className="flex items-center gap-2">
                     <Badge variant="default">{item.ticker}</Badge>
-                    <span className="text-sm text-muted-foreground">{item.date}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {item.date}
+                    </span>
                   </div>
-                  {item.access === 'Pro' ? (
+                  {item.access === "Pro" ? (
                     <Lock className="w-4 h-4 text-muted-foreground" />
                   ) : (
-                    <Badge variant="secondary" className="text-green-600">FREE</Badge>
+                    <Badge variant="secondary" className="text-green-600">
+                      FREE
+                    </Badge>
                   )}
                 </div>
 
@@ -135,11 +162,13 @@ export default function ResearchClient({ reports }: { reports: ResearchReport[] 
                   {item.date}
                 </div>
                 <div className="col-span-12 md:col-span-2 flex items-center gap-2">
-                    <Badge variant={getBadgeVariant(item.type)}>{item.type}</Badge>
+                  <Badge variant={getBadgeVariant(item.type)}>
+                    {item.type}
+                  </Badge>
                 </div>
 
                 <div className="hidden md:flex col-span-1 justify-end">
-                  {item.access === 'Pro' ? (
+                  {item.access === "Pro" ? (
                     <div className="flex items-center gap-1 text-muted-foreground text-sm">
                       <Lock className="w-4 h-4" />
                       <span>Pro</span>
@@ -159,7 +188,15 @@ export default function ResearchClient({ reports }: { reports: ResearchReport[] 
             <div className="p-12 text-center text-muted-foreground">
               <FileText className="w-12 h-12 mx-auto mb-4 text-border" />
               <p>No reports found matching your criteria.</p>
-              <Button variant="link" onClick={() => { setSearchTerm(''); setTypeFilter('All'); }}>Clear Filters</Button>
+              <Button
+                variant="link"
+                onClick={() => {
+                  setSearchTerm("");
+                  setTypeFilter("All");
+                }}
+              >
+                Clear Filters
+              </Button>
             </div>
           )}
         </div>
@@ -179,7 +216,7 @@ export default function ResearchClient({ reports }: { reports: ResearchReport[] 
               <Button
                 key={page}
                 size="icon"
-                variant={currentPage === page ? 'default' : 'outline'}
+                variant={currentPage === page ? "default" : "outline"}
                 onClick={() => handlePageChange(page)}
               >
                 {page}
@@ -189,7 +226,9 @@ export default function ResearchClient({ reports }: { reports: ResearchReport[] 
             <Button
               size="icon"
               variant="outline"
-              onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+              onClick={() =>
+                handlePageChange(Math.min(totalPages, currentPage + 1))
+              }
               disabled={currentPage === totalPages}
             >
               <ChevronRight className="w-4 h-4" />

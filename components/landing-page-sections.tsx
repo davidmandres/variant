@@ -1,8 +1,8 @@
 'use client';
 import Link from 'next/link';
 import { ArrowRight, Check, ChevronRight, Lock, Shield, Users } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Button } from './ui/button';
+import { Card, CardContent } from './ui/card';
 
 export function LandingHero() {
   return (

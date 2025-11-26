@@ -1,6 +1,6 @@
-import { researchData, ResearchReport } from '@/lib/data';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import { researchData, ResearchReport } from "../../../lib/data";
+import { notFound } from "next/navigation";
+import Link from "next/link";
 import {
   ArrowLeft,
   Bookmark,
@@ -9,24 +9,28 @@ import {
   Lock,
   BarChart3,
   FileBarChart,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import ReportSummary from '@/components/report-summary';
+} from "lucide-react";
+import { Button } from "../../../components/ui/button";
+import { Badge } from "../../../components/ui/badge";
+import ReportSummary from "../../../components/report-summary";
 
 function getReport(id: string): ResearchReport | undefined {
   const reportId = parseInt(id, 10);
   return researchData.find((r) => r.id === reportId);
 }
 
-export default function ReportDetailPage({ params }: { params: { id: string } }) {
+export default function ReportDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const report = getReport(params.id);
 
   if (!report) {
     notFound();
   }
 
-  const isPro = report.access === 'Pro';
+  const isPro = report.access === "Pro";
 
   return (
     <div className="min-h-screen bg-background pt-32 pb-20">
@@ -34,18 +38,30 @@ export default function ReportDetailPage({ params }: { params: { id: string } })
         <div className="flex justify-between items-center mb-8">
           <Button variant="ghost" asChild className="text-muted-foreground">
             <Link href="/research" className="group">
-              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />{' '}
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />{" "}
               Back to Archive
             </Link>
           </Button>
           <div className="flex gap-1 md:gap-2">
-            <Button variant="ghost" size="icon" className="text-muted-foreground">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-muted-foreground"
+            >
               <Bookmark className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-muted-foreground">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-muted-foreground"
+            >
               <Share2 className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-muted-foreground">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-muted-foreground"
+            >
               <Printer className="w-5 h-5" />
             </Button>
           </div>
@@ -54,11 +70,17 @@ export default function ReportDetailPage({ params }: { params: { id: string } })
         <header className="mb-12">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-sm">
             <Badge variant="default">{report.ticker}</Badge>
-            <span className="text-muted-foreground font-medium">{report.date}</span>
+            <span className="text-muted-foreground font-medium">
+              {report.date}
+            </span>
             <span className="text-border">•</span>
-            <span className="text-muted-foreground font-medium">{report.type}</span>
+            <span className="text-muted-foreground font-medium">
+              {report.type}
+            </span>
             <span className="text-border">•</span>
-            <span className="text-muted-foreground font-medium">{report.sector}</span>
+            <span className="text-muted-foreground font-medium">
+              {report.sector}
+            </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 font-headline">
@@ -70,7 +92,9 @@ export default function ReportDetailPage({ params }: { params: { id: string } })
               {report.author.initials}
             </div>
             <div>
-              <div className="font-bold text-foreground">{report.author.name}</div>
+              <div className="font-bold text-foreground">
+                {report.author.name}
+              </div>
               <div className="text-sm text-muted-foreground">
                 {report.author.title}
               </div>
@@ -80,7 +104,7 @@ export default function ReportDetailPage({ params }: { params: { id: string } })
 
         <article className="space-y-6 text-lg text-foreground/90">
           <ReportSummary reportContent={report.content} />
-          
+
           <div className="p-6 bg-secondary border-l-4 border-primary rounded-r-lg">
             <h3 className="text-lg font-bold mt-0 mb-2 text-foreground">
               Executive Summary
@@ -91,8 +115,11 @@ export default function ReportDetailPage({ params }: { params: { id: string } })
           </div>
 
           <div className="relative">
-            <div className={isPro ? 'filter blur-sm select-none' : ''}>
-                <div dangerouslySetInnerHTML={{ __html: report.content }} className="space-y-6 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mt-10 [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:pl-2" />
+            <div className={isPro ? "filter blur-sm select-none" : ""}>
+              <div
+                dangerouslySetInnerHTML={{ __html: report.content }}
+                className="space-y-6 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mt-10 [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:pl-2"
+              />
             </div>
 
             {isPro && (

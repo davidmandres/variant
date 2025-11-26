@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "../../components/ui/button";
 
 export default function TermsPage() {
   const isPrivacy = false;
@@ -14,7 +14,7 @@ export default function TermsPage() {
         </Button>
 
         <h1 className="text-4xl font-bold mb-8 tracking-tight font-headline">
-          {isPrivacy ? 'Privacy Policy' : 'Terms of Service'}
+          {isPrivacy ? "Privacy Policy" : "Terms of Service"}
         </h1>
 
         <div className="space-y-6 text-muted-foreground leading-relaxed">
@@ -22,7 +22,10 @@ export default function TermsPage() {
 
           <div className="p-6 bg-secondary rounded-lg border">
             <p className="text-sm font-medium text-foreground">
-              <strong>Summary:</strong> Our research is for informational purposes only and is not investment advice. Your subscription is for your personal use and cannot be shared. You can cancel anytime.
+              <strong>Summary:</strong> Our research is for informational
+              purposes only and is not investment advice. Your subscription is
+              for your personal use and cannot be shared. You can cancel
+              anytime.
             </p>
           </div>
 
@@ -31,21 +34,31 @@ export default function TermsPage() {
           </h3>
           <p>
             Welcome to Variant Research. By accessing our website, you agree to
-            be bound by these {isPrivacy ? 'privacy practices' : 'terms'}. Please read these terms carefully before using our services.
+            be bound by these {isPrivacy ? "privacy practices" : "terms"}.
+            Please read these terms carefully before using our services.
           </p>
 
           <h3 className="text-xl font-bold text-foreground mt-8 !mb-4">
-            2. {isPrivacy ? 'Information We Collect' : 'Use of Research'}
+            2. {isPrivacy ? "Information We Collect" : "Use of Research"}
           </h3>
           <p>
-            All content provided by Variant Research is for informational purposes only. It is not intended to be investment advice. You should not make any investment decision based solely on the information provided in our reports.
+            All content provided by Variant Research is for informational
+            purposes only. It is not intended to be investment advice. You
+            should not make any investment decision based solely on the
+            information provided in our reports.
           </p>
 
           <h3 className="text-xl font-bold text-foreground mt-8 !mb-4">
-            3. {isPrivacy ? 'How We Use Your Information' : 'Subscription & Billing'}
+            3.{" "}
+            {isPrivacy
+              ? "How We Use Your Information"
+              : "Subscription & Billing"}
           </h3>
           <p>
-            Payments for subscriptions are billed in advance on a monthly or yearly basis. You may cancel your subscription at any time from your account dashboard. Refunds are processed on a case-by-case basis at our sole discretion.
+            Payments for subscriptions are billed in advance on a monthly or
+            yearly basis. You may cancel your subscription at any time from your
+            account dashboard. Refunds are processed on a case-by-case basis at
+            our sole discretion.
           </p>
 
           <div

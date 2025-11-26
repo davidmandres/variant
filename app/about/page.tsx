@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import { Target, Eye, Shield } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import { Target, Eye, Shield } from "lucide-react";
+import { Button } from "../../components/ui/button";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background pt-32 pb-20">
       <section className="max-w-4xl mx-auto px-6 mb-24 text-center">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-tight font-headline">
-          We are bridging the gap between{' '}
-          <span className="text-muted-foreground">institutional mandates</span> and{' '}
-          <span className="text-muted-foreground">retail reality</span>.
+          We are bridging the gap between{" "}
+          <span className="text-muted-foreground">institutional mandates</span>{" "}
+          and <span className="text-muted-foreground">retail reality</span>.
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
           Variant exists to provide the individual investor with the same
@@ -90,10 +90,10 @@ export default function AboutPage() {
             </div>
             <h3 className="text-xl font-bold">Radical Transparency</h3>
             <p className="text-muted-foreground leading-relaxed">
-              In an industry built on &quot;black box&quot; models, we open
-              ours up. Every Pro subscriber gets access to Excel Valuation
-              Models. Verify our assumptions, stress test our logic, and make
-              the model your own.
+              In an industry built on &quot;black box&quot; models, we open ours
+              up. Every Pro subscriber gets access to Excel Valuation Models.
+              Verify our assumptions, stress test our logic, and make the model
+              your own.
             </p>
           </div>
 

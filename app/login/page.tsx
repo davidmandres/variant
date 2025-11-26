@@ -1,15 +1,19 @@
-import Link from 'next/link';
-import { ArrowLeft, Star } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { GoogleIcon } from '@/components/icons';
+import Link from "next/link";
+import { ArrowLeft, Star } from "lucide-react";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { GoogleIcon } from "../../components/icons";
 
 export default function LoginPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col md:flex-row">
       <div className="w-full md:w-1/2 p-8 md:p-20 flex flex-col justify-center">
         <div className="max-w-md mx-auto w-full">
-          <Button variant="ghost" asChild className="mb-12 text-muted-foreground">
+          <Button
+            variant="ghost"
+            asChild
+            className="mb-12 text-muted-foreground"
+          >
             <Link href="/">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
@@ -17,7 +21,9 @@ export default function LoginPage() {
           </Button>
 
           <div className="mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 font-headline">Welcome Back</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 font-headline">
+              Welcome Back
+            </h1>
             <p className="text-muted-foreground">
               Log in to access your research dashboard and latest reports.
             </p>
@@ -40,21 +46,21 @@ export default function LoginPage() {
                 <label className="block text-sm font-medium mb-1">
                   Email Address
                 </label>
-                <Input
-                  type="email"
-                  placeholder="john@example.com"
-                />
+                <Input type="email" placeholder="john@example.com" />
               </div>
 
               <div>
                 <div className="flex justify-between items-center mb-1">
                   <label className="block text-sm font-medium">Password</label>
-                  <Button variant="link" size="sm" className="h-auto p-0 text-xs">Forgot password?</Button>
+                  <Button
+                    variant="link"
+                    size="sm"
+                    className="h-auto p-0 text-xs"
+                  >
+                    Forgot password?
+                  </Button>
                 </div>
-                <Input
-                  type="password"
-                  placeholder="••••••••"
-                />
+                <Input type="password" placeholder="••••••••" />
               </div>
             </div>
 
@@ -63,7 +69,7 @@ export default function LoginPage() {
             </Button>
 
             <p className="text-sm text-muted-foreground text-center mt-4">
-              Don&apos;t have an account?{' '}
+              Don&apos;t have an account?{" "}
               <Button asChild variant="link" className="p-0 h-auto">
                 <Link href="/signup" className="font-bold text-primary">
                   Join now
@@ -99,18 +105,30 @@ export default function LoginPage() {
 
           <div className="pt-10 border-t flex justify-between items-center gap-8">
             <div className="text-center">
-                <div className="text-3xl font-bold tracking-tight text-foreground">127+</div>
-                <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-2">Reports</div>
+              <div className="text-3xl font-bold tracking-tight text-foreground">
+                127+
+              </div>
+              <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-2">
+                Reports
+              </div>
             </div>
             <div className="w-px h-12 bg-border"></div>
             <div className="text-center">
-                <div className="text-3xl font-bold tracking-tight text-foreground">2,400+</div>
-                <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-2">Members</div>
+              <div className="text-3xl font-bold tracking-tight text-foreground">
+                2,400+
+              </div>
+              <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-2">
+                Members
+              </div>
             </div>
             <div className="w-px h-12 bg-border"></div>
             <div className="text-center">
-                <div className="text-3xl font-bold tracking-tight text-foreground">$2B+</div>
-                <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-2">Assets</div>
+              <div className="text-3xl font-bold tracking-tight text-foreground">
+                $2B+
+              </div>
+              <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-2">
+                Assets
+              </div>
             </div>
           </div>
         </div>

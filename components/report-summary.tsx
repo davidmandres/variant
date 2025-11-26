@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { generateSummary } from "../app/actions";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import { Loader2, Sparkles, AlertTriangle } from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 
 export default function ReportSummary({
   reportContent,

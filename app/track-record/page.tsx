@@ -1,10 +1,5 @@
-import { performanceData } from '@/lib/data';
-import {
-  TrendingUp,
-  Check,
-  BarChart3,
-  Users,
-} from 'lucide-react';
+import { performanceData } from "../../lib/data";
+import { TrendingUp, Check, BarChart3, Users } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -12,21 +7,35 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
+} from "../../components/ui/table";
+import { Badge } from "../../components/ui/badge";
+import { Card, CardContent } from "../../components/ui/card";
 
-const StatCard = ({ icon, title, value, subtext, valueColor }: { icon: React.ReactNode, title: string, value: string, subtext: string, valueColor?: string }) => (
-    <Card>
-      <CardContent className="p-6">
-        <div className="flex items-center gap-2 mb-2 text-muted-foreground text-sm font-medium">
-          {icon}
-          <span>{title}</span>
-        </div>
-        <div className={`text-4xl font-bold text-foreground ${valueColor}`}>{value}</div>
-        <div className="text-xs text-muted-foreground mt-1">{subtext}</div>
-      </CardContent>
-    </Card>
+const StatCard = ({
+  icon,
+  title,
+  value,
+  subtext,
+  valueColor,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  value: string;
+  subtext: string;
+  valueColor?: string;
+}) => (
+  <Card>
+    <CardContent className="p-6">
+      <div className="flex items-center gap-2 mb-2 text-muted-foreground text-sm font-medium">
+        {icon}
+        <span>{title}</span>
+      </div>
+      <div className={`text-4xl font-bold text-foreground ${valueColor}`}>
+        {value}
+      </div>
+      <div className="text-xs text-muted-foreground mt-1">{subtext}</div>
+    </CardContent>
+  </Card>
 );
 
 export default function TrackRecordPage() {
@@ -45,19 +54,37 @@ export default function TrackRecordPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <StatCard icon={<TrendingUp className="w-4 h-4" />} title="Avg. Return" value="+34.2%" subtext="Per recommendation" />
-            <StatCard icon={<Check className="w-4 h-4" />} title="Win Rate" value="68%" subtext="Positive trades closed" />
-            <StatCard icon={<BarChart3 className="w-4 h-4" />} title="vs S&P 500" value="+18.5%" subtext="Alpha generated" valueColor="text-green-600" />
-            <Card className="bg-primary text-primary-foreground">
-                <CardContent className="p-6">
-                    <div className="flex items-center gap-2 mb-2 text-primary-foreground/80 text-sm font-medium">
-                        <Users className="w-4 h-4" />
-                        <span>Active Members</span>
-                    </div>
-                    <div className="text-4xl font-bold">2,405</div>
-                    <div className="text-xs text-primary-foreground/70 mt-1">Reading our research</div>
-                </CardContent>
-            </Card>
+          <StatCard
+            icon={<TrendingUp className="w-4 h-4" />}
+            title="Avg. Return"
+            value="+34.2%"
+            subtext="Per recommendation"
+          />
+          <StatCard
+            icon={<Check className="w-4 h-4" />}
+            title="Win Rate"
+            value="68%"
+            subtext="Positive trades closed"
+          />
+          <StatCard
+            icon={<BarChart3 className="w-4 h-4" />}
+            title="vs S&P 500"
+            value="+18.5%"
+            subtext="Alpha generated"
+            valueColor="text-green-600"
+          />
+          <Card className="bg-primary text-primary-foreground">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-2 mb-2 text-primary-foreground/80 text-sm font-medium">
+                <Users className="w-4 h-4" />
+                <span>Active Members</span>
+              </div>
+              <div className="text-4xl font-bold">2,405</div>
+              <div className="text-xs text-primary-foreground/70 mt-1">
+                Reading our research
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         <Card className="overflow-hidden">
@@ -89,7 +116,9 @@ export default function TrackRecordPage() {
                       {item.ticker}
                     </TableCell>
                     <TableCell>
-                      <Badge variant="secondary">{item.type.toUpperCase()}</Badge>
+                      <Badge variant="secondary">
+                        {item.type.toUpperCase()}
+                      </Badge>
                     </TableCell>
                     <TableCell>{item.entryDate}</TableCell>
                     <TableCell>${item.entryPrice.toFixed(2)}</TableCell>
@@ -100,20 +129,24 @@ export default function TrackRecordPage() {
                     </TableCell>
                     <TableCell
                       className={`text-right font-bold ${
-                        item.return > 0 ? 'text-green-600' : 'text-red-600'
+                        item.return > 0 ? "text-green-600" : "text-red-600"
                       }`}
                     >
-                      {item.return > 0 ? '+' : ''}
+                      {item.return > 0 ? "+" : ""}
                       {item.return}%
                     </TableCell>
                     <TableCell className="text-right">
                       <Badge
-                        variant={
-                          item.status === 'Open' ? 'default' : 'outline'
+                        variant={item.status === "Open" ? "default" : "outline"}
+                        className={
+                          item.status === "Open"
+                            ? "bg-green-100 text-green-800 border-green-200"
+                            : ""
                         }
-                        className={item.status === 'Open' ? 'bg-green-100 text-green-800 border-green-200' : ''}
                       >
-                         {item.status === 'Open' && <span className="w-1.5 h-1.5 mr-1.5 rounded-full bg-green-500 animate-pulse"></span>}
+                        {item.status === "Open" && (
+                          <span className="w-1.5 h-1.5 mr-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        )}
                         {item.status}
                       </Badge>
                     </TableCell>
