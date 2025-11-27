@@ -13,35 +13,53 @@ header.header {
   @include transition-ns(0.3s);
 
   .computer-menu {
-    max-width: 72rem;
+    max-width: 112rem;
     margin-left: auto;
     margin-right: auto;
     padding: 0 2.4rem;
 
-    @include flex($jc: "space-between", $ai: "center");
+    @include flex($jc: space-between, $ai: center);
   }
 
   .logo-box {
     cursor: pointer;
 
     @include flex-center(1.2rem);
+
+    @include hover-anim(
+      $transition-secs: 0.3s,
+      $translateY: -0.2rem,
+      $scale: 1.05
+    );
+
+    .logo-v {
+      width: 4rem;
+      height: 4rem;
+      background-color: hsl(var(--foreground));
+      color: hsl(var(--primary-foreground));
+      font-weight: 500;
+
+      @include flex-center();
+    }
+
+    .logo-name {
+      font-size: 1.8rem;
+      line-height: 1.6rem;
+      letter-spacing: 0.025em;
+      color: hsl(var(--foreground));
+      margin-left: -0.5rem;
+    }
   }
 
   nav.nav {
-    @include flex-center(5rem);
-    align-self: flex-end;
-    width: 75%;
+    @include flex(6rem, $ai: center);
+
+    @include respond($breakpoint: tab-port) {
+      display: none;
+    }
   }
 
   .login {
     @include flex-center(4rem);
-  }
-
-  .logo-box {
-    background-color: $gray-9;
-
-    .logo {
-      height: 3.5rem;
-    }
   }
 }

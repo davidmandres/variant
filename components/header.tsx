@@ -41,33 +41,32 @@ export function Header() {
       )}
     >
       <div className="computer-menu">
-        <Link href="/" className="logo-box group">
-          <div className="w-10 h-10 bg-primary text-primary-foreground flex items-center justify-center text-xl font-medium group-hover:scale-105 transition-transform">
-            V
-          </div>
-          <span className="text-xl font-bold tracking-wide text-foreground">
-            VARIANT
-          </span>
+        <Link href="/" className="logo-box">
+          <div className="logo-v">V</div>
+          <span className="logo-name">VARIANT</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="nav">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm font-medium hover:text-foreground transition-colors",
-                pathname === link.href
-                  ? "text-foreground underline underline-offset-4"
-                  : "text-muted-foreground"
-              )}
-            >
-              {link.label}
-            </Link>
+            <button className="btn-text">
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-sm font-medium hover:text-foreground transition-colors",
+                  pathname === link.href
+                    ? "text-foreground underline underline-offset-4"
+                    : "text-muted-foreground"
+                )}
+              >
+                {link.label}
+              </Link>
+            </button>
           ))}
-          <Button asChild>
+          <div>|</div>
+          <button className="btn">
             <Link href="/login">Member Login</Link>
-          </Button>
+          </button>
         </nav>
 
         <button

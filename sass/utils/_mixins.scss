@@ -21,45 +21,112 @@
   transform: translate($translateX, $translateY);
 }
 
+@mixin export-theme($map) {
+  @each $name, $value in $map {
+    --#{$name}: #{$value};
+  }
+}
+
+@mixin box-shadow-black-0hoff-Xvoff-Xblur-Xopa(
+  $verticalOffset,
+  $blur,
+  $opacity: $default-opacity
+) {
+  box-shadow: 0 $verticalOffset $blur rgba(0, 0, 0, $opacity);
+}
+
+@mixin basic-black-box-shadow() {
+  @include box-shadow-black-0hoff-Xvoff-Xblur-Xopa(0, 1rem, 0.3);
+}
+
+// anims
+// Generic hover animation mixin
+@mixin hover-anim(
+  $transition-secs: 0.3s,
+  $translateY: 0,
+  $scale: 1,
+  $shadow: null,
+  $pointer: true
+) {
+  @include transition-ns($transition-secs);
+
+  &:hover {
+    transform: translateY($translateY) scale($scale);
+
+    @if $pointer {
+      cursor: pointer;
+    }
+
+    @if $shadow != null {
+      @include box-shadow-black-0hoff-Xvoff-Xblur-Xopa($shadow...);
+    }
+  }
+}
+
+@mixin hover-scale-siblings($selector, $scale: 0.95) {
+  &:hover #{$selector}:not(:hover) {
+    transform: scale($scale);
+  }
+
+  @supports selector(&:has(#{$selector}:hover)) {
+    &:hover #{$selector}:not(:hover) {
+      transform: scale(1);
+    }
+
+    &:has(#{$selector}:hover) #{$selector}:not(:hover) {
+      transform: scale($scale);
+    }
+  }
+}
+
 // media query manager
 /*
-0-600px: phone
-600-900px: tablet portrait
-900-1200px: tablet landscape
-[1200-1800px]: desktop, where normal styles apply
-1800px+: big desktop
+640px: sm
+768px: md
+1024px: lg
+1280px: xl
+1536px: 2xl
 
 $breakpoint argument choices:
-- phone
-- tab-port
-- tab-land
-- big-desktop
+- sm
+- md
+- lg
+- xl
+- 2xl
 
 ORDER: base + typography > gen layout + grid > page layout > components
+
+same breakpoints as tailwind but opposite usage
 
 1em = 16px
 */
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    @media only screen and (max-width: 37.5em) {
+  @if $breakpoint == sm {
+    @media only screen and (max-width: 40em) {
       @content;
     }
   }
 
-  @if $breakpoint == tab-port {
-    @media only screen and (max-width: 56.25em) {
+  @if $breakpoint == md {
+    @media only screen and (max-width: 48em) {
       @content;
     }
   }
 
-  @if $breakpoint == tab-land {
-    @media only screen and (max-width: 75em) {
+  @if $breakpoint == lg {
+    @media only screen and (max-width: 64em) {
       @content;
     }
   }
 
-  @if $breakpoint == big-desktop {
-    @media only screen and (min-width: 112.5em) {
+  @if $breakpoint == xl {
+    @media only screen and (max-width: 80em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == 2xl {
+    @media only screen and (max-width: 96em) {
       @content;
     }
   }
